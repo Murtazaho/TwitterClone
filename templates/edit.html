@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<section class="content">
+<section class="post_form">
+    <div class="logo">
+      <img src="{% static 'img/techis-logo.png' %}" class="home_logo" />
+      <h1>Edit</h1>
+    </div>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+      {%csrf_token %}
+      <div class="logo">
+        <img src="{% static 'img/user.png'%}" alt="" />
+        <input type="text" name="name" value="{{ post.name }}" />
+        
+      </div>
+      <br>
+      <input name="body" value="{{post.body}}">
+    <!--<input type="text" value="{{ post.body }}" style="margin-left:55px ;">-->
+     
+        <img src="{{ post.image.url }}" width="200px"hight="10%"display="block"style="display: inherit; margin-bottom: 10px;">
+
+      
+       <input type="file" id="myFile" name="image" style="background-color: whitesmoke; color: grey; width: 213px;"/>
+         <input id='tweet' type="submit" value="Cancel"  style="margin-top: 0%; width: 13%; margin-left: 5%; border-radius: 10% " /> 
+         <input id='tweet' type="submit" value="Update"  style="margin-top: 0%; width: 13%; margin-left: 2%; border-radius: 10%;" /> 
+         
+    </form>
+  </section>
+
+ 
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{%static 'js/posts.js' %}"></script>
+</section>
+
+{% endblock %}
